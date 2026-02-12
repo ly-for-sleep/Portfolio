@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POC Migration Centreon | YANG Liam</title>
+    <link rel="stylesheet" href="../css/projet.css">
+</head>
+<body>
+    <nav class="top-nav">
+        <div class="container">
+            <a href="../pages/realisation.html" class="btn-back">← Retour</a>
+        </div>
+    </nav>
+    <header class="hero">
+        <div class="container">
+            <h1>Proof Of Concept (POC)</h1>
+            <h2 class="subtitle">Migration CentOS 7 vers Debian 12 pour Centreon</h2>
+            <p class="author">Par : YANG Liam</p>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <section class="intro-box">
+            <h3>Présentation</h3>
+            <p><strong>Objectif :</strong> Valider la migration de Centreon de CentOS 7 vers Debian 12</p>
+        </section>
+
+        <section class="section">
+            <h3 class="section-title"><span>I</span> Pourquoi migrer vers Debian 12 ?</h3>
+            <div class="grid">
+                <div class="card card-danger">
+                    <h4>L'urgence CentOS 7</h4>
+                    <p>Notre logiciel de supervision Centreon étant sur CentOS 7 Linux qui a atteint sa fin de vie depuis <strong>le 30 juin 2024</strong>. 
+                        Il n’est donc plus supporté et présente des failles de sécurités. 
+                        Plusieurs solutions existent pour remédier à ce souci, 
+                        comme migrer de système d’exploitation comme Red Hat Enterprise Linux.</p>
+                    <a href="https://www.redhat.com/fr/topics/linux/centos-linux-eol" target="_blank" class="source-link">Source : Red Hat EOL</a>
+                </div>
+                <div class="card card-success">
+                    <h4>Le choix Debian 12</h4>
+                    <p>Debian 12 est un OS stable, fiable et encore supporté <strong>jusqu’en juin 2028</strong>. De plus cet OS est simple d’utilisation 
+                        avec son interface graphique et à une faible consommation sur les performances ce qui est adapté pour notre logiciel 
+                        qui doit tourner 24/7. </p>
+                    <a href="https://www.debian.org/intro/why_debian.fr.html" target="_blank" class="source-link">Source : Pourquoi Debian</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h3 class="section-title"><span>II</span> Objectifs du POC</h3>
+            <div class="card">
+                <h4>1. Compatibilité et fonctionnement technique</h4>
+                <ul>
+                    <li>Vérifier la compatibilité de Centreon sur Debian 12</li>
+                    <li>Tester Centreon sur Debian 12</li>
+                </ul>
+                <h4 style="margin-top: 20px;">2. Retrouver le Centreon Indigo</h4>
+                <ul>
+                    <li>Que signifie « Retrouver le Centreon INDIGO » ? C’est retrouver notre affichage de super-vision avec les 
+                    « Vues Personnalisées », nos alertes d’accès internet, le statut de nos machines Avaya 
+                    (potentiel attaque, certificat expiré…).</li>
+                </ul>
+                
+                <h4 style="margin-top: 20px;">3. Mise en situation réelle</h4>
+                <ul>
+                    <li>Mettre en situation réelle Centreon sur Debian 12 pendant plusieurs semaines.</li>
+                    <li>Vérifier si mon Centreon présente des problèmes : </li>
+                    <ul>
+                        <p>Cas 1 : la machine ne présente pas de problème et approbation du POC</p>
+                        <p>Cas 2 : la machine présente des problèmes à corriger et refaire des tests jusqu’à « Cas 1 ».</p>
+                    </ul>
+                </ul>
+                
+            </div>
+        </section>
+
+        <div class="grid">
+            <section class="section">
+                <h3 class="section-title"><span>III</span> Périmètre technique</h3>
+                <div class="card">
+                    <p><strong>Infrastructure :</strong> Machine Virtuelle avec VMWare, premier test avec une machine virtuelle où Centreon est déjà pré-installé.</p> 
+                    <p>Puis installation manuelle avec les paquets officiels pour la maitrise des commandes Linux et une meilleure gestion des paquets et chemins.</p>
+                    <p><strong>Applications :</strong> VMWare, Centreon, modules, et Avaya.</p>
+                    <p><strong>Méthode :</strong> Migration via le module <strong>AWIE</strong> (Api Web Import-Export) pour transférer la 
+                        configuration de CentOS 7 vers Debian 12.</p>
+                </div>
+            </section>
+            <section class="section">
+                <h3 class="section-title"><span>IV</span> Déroulement</h3>
+                <div class="card">
+                    <ol>
+                        <li><strong>Préparation :</strong> Recherche d'un OS optimisé pour un logiciel de supervision : Debian 12</li>
+                        <li><strong>Exécution :</strong> Installation des paquets Centreon et import de la configuration avec AWIE.</li>
+                        <li><strong>Tests :</strong> Ping accès internet et utilisation du protocol SNMP avec Avaya pour les requêtes passives.</li>
+                    </ol>
+                </div>
+            </section>
+        </div>
+
+        <section class="section">
+            <h3 class="section-title"><span>V</span> Défis Techniques et Solutions</h3>
+            <div class="card">
+                <div class="grid">
+                    <div>
+                        <h4>Gestion des Traps SNMP Avaya</h4>
+                        <p><strong>Problème :</strong> Les alertes Avaya n'étaient pas reçues par Centreon car le système était "sourd".</p>
+                        <p><strong>Solution :</strong> Modification de <code>/etc/default/snmptrapd</code> pour forcer la lecture de la 
+                            configuration spécifique (options -C -c) et création du dossier de spool <code>/var/spool/centreon/traps/</code>.</p>
+                    </div>
+                    <div>
+                        <h4>Sécurité et Droits (Sudo)</h4>
+                        <p><strong>Problème :</strong> Échec du transfert des alertes entre l'utilisateur <code>Debian-snmp</code> et le moteur 
+                            Centreon.</p>
+                        <p><strong>Solution :</strong> Configuration de <code>visudo</code> pour autoriser l'exécution sans mot de passe 
+                            (NOPASSWD) et ajout de l'utilisateur au groupe <code>centreon</code>.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section status-box">
+            <h3 class="section-title"><span>VI</span> Résultats et Analyse</h3>
+            <div class="card">
+                <p>Résultat : Debian 12 est un bon choix pour le logiciel Centreon. J'ai pu reproduire l'interface de supervision qui était un des principaux
+                    objectifs. Les pings internet sont bien envoyés et reçus, et le requêtes Avaya sont bien reçues et analysées par mon Centreon.
+                </p>
+                
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>Ressources consultées :</p>
+            <div class="links">
+                <a href="https://docs.centreon.com/fr/docs/installation/installation-of-a-central-server/using-packages/">Installation Centreon</a> | 
+                <a href="https://docs.centreon.com/fr/docs/monitoring/web-import-export/">Module AWIE</a> |
+                <a href="https://docs.centreon.com/fr/docs/installation/compatibility/">Compatibilité OS</a>
+            </div>
+        </footer>
+
+    </main>
+</body>
+</html>

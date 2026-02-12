@@ -1,0 +1,597 @@
+/* ==========================================================================
+   1. VARIABLES ET RÉINITIALISATION
+   ========================================================================== */
+:root {
+    --primary-color: #3498db;    /* Bleu Vif - Action & Accent */
+    --primary-hover: #2980b9;    /* Bleu plus foncé pour les hovers */
+    --secondary-color: #2c3e50;  /* Bleu foncé - Texte & Fond */
+    --secondary-soft: #34495e;   /* Variante pour les dégradés */
+    --light-color: #ecf0f1;      /* Gris clair - Fonds */
+    --text-color: #333;
+    --font-family: 'Poppins', sans-serif;
+    --white: #ffffff;
+    --shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: #f4f4f4;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    color: var(--primary-hover);
+}
+
+ul {
+    list-style: none;
+}
+
+/* ==========================================================================
+   2. COMPOSANTS RÉUTILISABLES (BOUTONS, BADGES)
+   ========================================================================== */
+.cta-button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+    color: black;
+}
+
+.badge {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: var(--light-color);
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    margin: 5px 10px;
+}
+
+.badge i {
+    margin-right: 5px;
+    color: var(--primary-color);
+}
+
+.cta-button:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+    color: black;
+}
+.cta-button-badge {
+    color:white;
+    background-color: rgba(255, 255, 255, 0.15);
+    color: var(--light-color);
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    margin: 5px 10px;
+}
+.cta-button-badge:hover {
+    background-color: #9ba6ad;
+    transform: translateY(0px);
+    color: black;
+}
+.cta-button-badge i {
+    margin-right: 5px;
+    color: var(--primary-color); /* Utiliser la couleur d'accent pour les icônes */
+}
+
+/* ==========================================================================
+   3. NAVIGATION (HEADER)
+   ========================================================================== */
+.navbar {
+    background-color: var(--white);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar .logo {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: var(--secondary-color);
+}
+
+.navbar nav ul {
+    display: flex;
+}
+
+.navbar nav ul li {
+    margin-left: 25px;
+}
+
+.navbar nav ul li a {
+    font-weight: 600;
+    color: var(--secondary-color);
+    padding: 5px 0;
+    position: relative;
+}
+
+.navbar nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease-out;
+}
+
+.navbar nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* ==========================================================================
+   4. SECTION HÉROS (ACCUEIL)
+   ========================================================================== */
+.hero-section {
+    /* Remplace l'URL par le chemin de ton image */
+    background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), 
+                url('https://informatique-ou-libertes.fr/wp-content/uploads/2025/07/informatique-ou-libertes.fr-quelle-est-la-definition-simple-dun-reseau-informatique-quelle-est-la-definition-simple-dun-reseau-informatique-1024x683.jpg'); 
+    
+    background-size: cover;       /* L'image couvre tout l'espace */
+    background-position: center;  /* L'image est centrée */
+    background-attachment: fixed; /* Optionnel : effet parallaxe au défilement */
+    
+    color: white;
+    padding: 150px 5% 100px;
+    text-align: center;
+    min-height: 80vh; /* Augmenté pour mieux voir l'image */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-section h1 {
+    font-size: 3.5em;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.intro-description {
+    font-size: 1.1em;
+    font-weight: 300;
+    max-width: 800px;
+    margin-bottom: 15px;
+    line-height: 1.5;
+    color: var(--light-color);
+}
+
+.info-badges {
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ==========================================================================
+   5. PAGES INTERNES ET GRILLE DE PROJETS
+   ========================================================================== */
+.page-content {
+    padding: 80px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.intro-section {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.intro-section h2 {
+    font-size: 2.5em;
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    border-left: 5px solid var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    background-color: var(--light-color);
+}
+
+.project-card i {
+    font-size: 2.5em;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.project-card h3 {
+    margin-bottom: 10px;
+    color: var(--secondary-color);
+}
+
+.project-card p {
+    font-size: 0.95em;
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
+
+.project-card .tag {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8em;
+    font-weight: 600;
+    align-self: flex-start;
+}
+
+/* ==========================================================================
+   6. SECTION PROJET PROFESSIONNEL (PRO-DESCRIPTION)
+   ========================================================================== */
+.project-pro-section {
+    background-color: var(--white);
+    padding: 60px 5%;
+    text-align: center;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+
+.project-pro-section h2 {
+    font-size: 2em;
+    color: var(--primary-color);
+    margin-bottom: 25px;
+}
+
+.project-pro-section h2::after {
+    content: '';
+    display: block;
+    font-size: 1.5em;
+    margin-top: 10px;
+}
+
+.pro-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* ==========================================================================
+   7. TIMELINE (PARCOURS SCOLAIRE)
+   ========================================================================== */
+.timeline-section {
+    padding: 60px 5%;
+    background-color: var(--light-color);
+    text-align: center;
+}
+
+.timeline {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    padding-left: 30px;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background-color: #ccc;
+    top: 0;
+    bottom: 0;
+    left: 8px;
+}
+
+.timeline-item {
+    margin-bottom: 40px;
+    position: relative;
+    text-align: left;
+    padding-left: 30px;
+}
+
+.timeline-dot {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    border: 3px solid var(--white);
+    left: 0;
+    top: 5px;
+    z-index: 10;
+}
+
+.timeline-content {
+    background: var(--white);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-date {
+    font-weight: 700;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    font-size: 0.85em;
+}
+
+/* ==========================================================================
+   8. CONTACT ET FOOTER
+   ========================================================================== */
+.contact-strip {
+    background-color: var(--light-color);
+    padding: 40px 5%;
+    text-align: center;
+}
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.contact-link {
+    background-color: var(--white);
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    color: var(--text-color);
+}
+
+.contact-link:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border-color: var(--primary-color);
+}
+
+.footer {
+    text-align: center;
+    padding: 20px 5%;
+    background-color: var(--secondary-color);
+    color: var(--light-color);
+    font-size: 0.9em;
+}
+
+/* ==========================================================================
+   9. RESPONSIVITÉ (MEDIA QUERIES)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .navbar { flex-direction: column; }
+    .navbar nav { margin-top: 10px; }
+    .hero-section h1 { font-size: 2.5em; }
+    .contact-links { flex-direction: column; }
+    .contact-link { width: 100%; }
+    .projects-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+}
+
+@media (max-width: 480px) {
+    .hero-section h1 { font-size: 2em; }
+    .navbar .logo { font-size: 1.5em; }
+    .projects-grid { grid-template-columns: 1fr; }
+}
+
+/* --- 10. Styles Veille Technologique --- */
+
+.veille-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.veille-card {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.veille-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.veille-card ul {
+    list-style: none;
+    text-align: left;
+}
+
+.veille-card ul li {
+    margin-bottom: 15px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.veille-card ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+}
+
+.cta-button.small {
+    padding: 8px 20px;
+    font-size: 0.9em;
+    margin-top: 15px;
+}
+
+@media (max-width: 768px) {
+    .veille-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* --- 11. Styles du Formulaire de Contact --- */
+
+.contact-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 8px;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: var(--secondary-color);
+}
+
+.form-group input, 
+.form-group textarea {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: var(--font-family);
+    font-size: 1em;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus, 
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.contact-form .cta-button {
+    border: none;
+    cursor: pointer;
+    align-self: flex-start;
+}
+
+@media (max-width: 480px) {
+    .contact-container {
+        padding: 20px;
+    }
+    .contact-form .cta-button {
+        width: 100%;
+    }
+}
+/* --- Styles Carrousel Journal d'Actu --- */
+.carousel-container {
+    position: relative;
+    max-width: 800px; /* Largeur du journal */
+    margin: 40px auto;
+    overflow: hidden; /* Cache les images qui dépassent */
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    background: #000;
+}
+
+.carousel-slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    min-width: 100%;
+    position: relative;
+    height: 450px;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* L'image remplit tout l'espace sans se déformer */
+    opacity: 0.7;
+}
+
+.slide-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 30px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.9));
+    color: white;
+    text-align: left;
+}
+
+.slide-content h3 {
+    margin: 10px 0;
+    font-size: 1.5em;
+    color: #3498db;
+}
+
+.slide-content .tag {
+    background: #3498db;
+    margin-bottom: 10px;
+}
+
+/* Boutons Navigation */
+.carousel-prev, .carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.3);
+    color: white;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 20px;
+    transition: 0.3s;
+    z-index: 10;
+}
+
+.carousel-prev:hover, .carousel-next:hover {
+    background: var(--primary-color);
+}
+
+.carousel-prev { left: 0; border-radius: 0 5px 5px 0; }
+.carousel-next { right: 0; border-radius: 5px 0 0 5px; }
