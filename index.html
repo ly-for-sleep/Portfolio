@@ -5,32 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio de Liam YANG | BTS SIO SISR</title>
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
+
+
+
 <body>
 
     <header class="navbar">
-        <div class="logo">Mon Portfolio</div>
+        <div class="logo">Liam YANG</div>
         <nav>
             <ul>
-                <li><a href="pages/realisation.html">Projets</a></li>
-                <li><a href="pages/veille.html">Veille</a></li>
-                <li><a href="pages/contact.html">Contact</a></li>
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#projets">Projets</a></li>
+                <li><a href="#veille">Veille</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <main class="hero-section">
+    <main id="accueil" class="hero-section">
         <div class="hero-content">
             <h1>YANG Liam</h1>
             <p class="intro-description">
-                Actuellement étudiant à Keyce Academy en première année de BTS SIO (Services Informatiques aux Organisations) 
+                Etudiant à Keyce Academy en première année de BTS SIO (Services Informatiques aux Organisations) 
                 dans l'option SISR spécialisée pour le réseau informatique. <a href="https://media.makeameme.org/created/un-problme-informatique.jpg" target="_blank" style="text-decoration: none; color: inherit;">💻</a>
             </p>
             <p class="intro-description">
                 Je vous propose au sein de ce portfolio de retrouver ci-dessous mon parcours, 
-                et projets professionnels que j'ai pu entreprendre au sein de ma carrière.
+                et mes projets professionnels que j'ai pu entreprendre au sein de mon apprentissage.
             </p>
             <div class="info-badges">
                 <span class="badge">
@@ -44,23 +48,31 @@
                 <a class="cta-button-badge" href="https://www.onisep.fr/ressources/univers-formation/formations/post-bac/bts-services-informatiques-aux-organisations-option-a-solutions-d-infrastructure-systemes-et-reseaux">
                     <i class="fas fa-server"></i> 
                     SIO SISR
-                </a>
-            </div>
-            
-            <a href="pages\realisation.html" class="cta-button">Découvrir mes Réalisations</a>
+                </a>       
         </div>
-        
-        </main>
+    </main>
+
+    <section id="projet-pro" class="project-pro-section">
+        <h2>A propos de moi</h2>
+        <div class="pro-content">
+            <p>
+                J'ai toujours eu de la curiosité pour de l'informatique au cours de ma vie. Dès mon jeune âge, j'ai eu la chance d'obtenir ma première console de jeu.
+                J'ai toujours voulu savoir comment ça marchait et savoir comment faire mes propres jeux.
+                Alors j'ai commencé à m'intéresser à mes cours de technologie au collège,
+                puis à apprendre de mon côté l'informatique. J'ai fini par me spécialiser pour l'informatique au lycée en commençant par de la programmation.
+                Puis après mon Bac Général avec les options Maths et NSI, je me retrouve en BTS SIO SISR pour découvrir le réseau informatique.
+            </p>
+        </div>
+    </section>
 
     <section id="projet-pro" class="project-pro-section">
         <h2>Mon Projet Professionnel</h2>
         <div class="pro-content">
             <p>
-                Je souhaite m’orienter vers le métier d'Administrateur Réseau Infrastructures.
+                Je vise le métier d'Administrateur Réseau Infrastructures.
             </p>
             <p>
-                Après l’obtention de mon BTS SIO (BAC+2), je plongerais directement dans le monde professionnel, 
-                dans le but d'accumuler les expériences pratiques et monter rapidement en compétences dans ce domaine qui m'intéresse beaucoup.
+                Où j'accumulerai les expériences pratiques et monter en compétences dans ce domaine.
             </p>
         </div>
     </section>
@@ -82,6 +94,16 @@
             <div class="timeline-item">
                 <div class="timeline-dot"></div>
                 <div class="timeline-content">
+                    <span class="timeline-date">2023-2024</span>
+                    <h3>BTS CIEL en initial</h3>
+                    <p>Option A (Informatique et Réseaux)</p>
+                    <p class="location">Lycée Phillipe de Girard, Avignon 84000</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
                     <span class="timeline-date">Diplômé en 2023</span>
                     <h3>Lycée Général</h3>
                     <p>Spécialités : Mathématiques et NSI (Numérique et Sciences Informatiques)</p>
@@ -89,21 +111,137 @@
                 </div>
             </div>
 
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <span class="timeline-date">2016 - 2020</span>
-                    <h3>Collège</h3>
-                    <p>Obtention du Brevet des Collèges.</p>
-                    <p class="location">Pablo Picasso, Vallauris 06220</p>
-                </div>
-            </div>
-
         </div>
     </section>
 
+    <section id="projets" class="page-content container">
+        <h2 class="section-title">Mes Réalisations</h2>
+        <div class="projects-grid">
+            <section class="projects-grid">
+            
+            <a href="pages/projet1.html" class="project-card">
+                <i class="fas fa-network-wired"></i>
+                <h3>Projet 1 : POC Migration Centreon sur CentOS 7 à Debian 12</h3>
+                <p>Mise en place d'une solution en situation réelle.</p>
+                <span class="tag">Systèmes</span>
+            </a>
+
+            <a href="[Lien vers la doc du Projet 2]" class="project-card">
+                <i class="fas fa-lock"></i>
+                <h3>Projet 2 : Sécurisation d'un Serveur Web (Apache)</h3>
+                <p>Installation d'un pare-feu et configuration de certificats SSL/TLS.</p>
+                <span class="tag">Sécurité</span>
+            </a>
+
+            <a href="[Lien vers la doc du Projet 3]" class="project-card">
+                <i class="fas fa-server"></i>
+                <h3>Projet 3 : Gestion d'un Active Directory (Windows Server)</h3>
+                <p>Création d'utilisateurs, de groupes et de stratégies de sécurité (GPO).</p>
+                <span class="tag">Systèmes</span>
+            </a>
+
+            <a href="[Lien vers la doc du Projet 4]" class="project-card">
+                <i class="fas fa-database"></i>
+                <h3>Projet 4 : Installation et Administration d'une BDD PostgreSQL</h3>
+                <p>Mise en place et optimisation des performances d'une base de données.</p>
+                <span class="tag">Administration</span>
+            </a>
+
+            <a href="[Lien vers la doc du Projet 5]" class="project-card">
+                <i class="fas fa-cloud"></i>
+                <h3>Projet 5 : Déploiement d'une VM avec Virtualisation</h3>
+                <p>Utilisation de VMware/Hyper-V pour la gestion des environnements virtuels.</p>
+                <span class="tag">Virtualisation</span>
+            </a>
+
+            <a href="../pages/veille.html" class="project-card">
+                <i class="fas fa-cogs"></i>
+                <h3>Projet 6 : Documentation Technique et Veille</h3>
+                <p>Réalisation d'un document complet sur une technologie émergente.</p>
+                <span class="tag">Documentation</span>
+            </a>
+
+        </section>
+        </div>
+    </section>
+
+
+    <section id="veille" class="intro-section">
+            <h2><i class="fa-solid fa-terminal"></i> Ma veille Technologique</h2>
+            <p class="section-description">
+                S'informer de façon systématique sur les dernières innovations de son secteur. 
+                Je me concentre sur la Cybersécurité et les Infrastructures Réseaux.
+            </p>
+            
+            <div class="carousel-container">
+                    <div id="carousel-slider" class="carousel-slider">
+                        <p style="text-align: center; width: 100%;">Chargement des actualités...</p>
+                    </div>
+                
+                <button class="carousel-prev" onclick="moveSlide(-1)">&#10094;</button>
+                <button class="carousel-next" onclick="moveSlide(1)">&#10095;</button>
+            </div>
+    </section>
+
+    <script src="script/veille.js"></script>
+
+    <section class="veille-grid">
+            <div class="veille-card tools">
+                <h3><i class="fas fa-tools"></i> Mes Outils de Veille</h3>
+                <ul>
+                    <li><strong>Feedly.com :</strong> Me permet de centraliser l'actualité choisi mieux que le paralellisme chez Norauto.</li>
+                    
+                    <li><strong>The Hacker News :</strong> L'actu digne d'un moteur 1.9 TDI de la cybersécurtié.</li>
+                    <li><strong>Podcast :</strong> Écoute de plusieurs chaînes de podcast comme <a href="https://www.youtube.com/@Underscore_">Underscore_</a> 
+                        <i class="fab fa-youtube"></i></li>
+                </ul>
+            </div>
+
+            <div class="veille-card topic">
+                <h3><i class="fas fa-bullseye"></i> Sujet : Le Zero Trust Architecture</h3>
+                <p>Le modèle "Zero Trust" part du principe qu'aucun utilisateur ou appareil ne doit avoir un accès automatique, qu'il soit à l'intérieur ou à l'extérieur du réseau de l'entreprise.</p>
+                <a href="#" class="cta-button small">Lire ma synthèse</a>
+            </div>
+        </section>
+
+    <section id ="contact" class="intro-section">
+            <h2><i class="fa-solid fa-envelope"></i> Me Contacter</h2>
+            <p class="section-description">
+                Vous souhaitez échanger sur un projet, une opportunité d'alternance ou simplement poser une question ? 
+                Remplissez le formulaire ci-dessous, je vous répondrai dans les plus brefs délais.
+            </p>
+    </section>
+
+    <section class="contact-container">
+        <form action="https://formspree.io/f/mkobrbgo" method="POST" class="contact-form">
+            <div class="form-group">
+                <label for="name">Nom complet</label>
+                <input type="text" id="name" name="name" placeholder="Ex: John Smith" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Votre adresse e-mail</label>
+                <input type="email" id="email" name="_replyto" placeholder="Ex: johnsmith@email.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="subject">Objet</label>
+                <input type="text" id="subject" name="subject" placeholder="Sujet de votre message">
+            </div>
+
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="6" placeholder="Votre message ici..." required></textarea>
+            </div>
+
+            <input type="text" name="_gotcha" style="display:none">
+
+            <button type="submit" class="cta-button">Envoyer le message</button>
+        </form>
+    </section>
+
     <section id="quick-contact" class="contact-strip">
-        <h2>Mes réseaux</h2>
+        
         <div class="contact-links">
             <a href="https://www.linkedin.com/in/liam-yang-15936730b/" target="_blank" class="contact-link social-link">
                 <i class="fab fa-linkedin"></i> LinkedIn
@@ -115,8 +253,19 @@
     </section>
 
     <footer class="footer">
-        <p>&copy; 2025 Liam YANG - Portfolio BTS SIO SISR</p>
+        <p>&copy; 2026 Liam YANG - Portfolio SISR</p>
     </footer>
 
 </body>
+<div id="loader">
+    <div class="loader-content">
+        <div class="terminal-loader">
+            <span class="loader-text">INITIALIZING_SYSTEM</span>
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="script/loading.js"></script>
 </html>

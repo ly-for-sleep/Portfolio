@@ -120,3 +120,37 @@ body {
     color: #ffffff;
     box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
 }
+/* Style du bouton de téléchargement */
+.btn-download {
+    display: flex;
+    margin : 20px auto;
+    width: fit-content;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Espace propre entre l'icône et le texte */
+    padding: 12px 24px;
+    background-color: #2563eb; /* Bleu principal de ton thème */
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 6px; /* Arrondi cohérent avec le btn-back */
+    font-size: 1rem;
+    font-weight: 600;
+    border: 2px solid #2563eb;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2); /* Ombre bleutée subtile */
+    margin-top: 20px; /* Espace au dessus si intégré dans une carte */
+}
+
+/* Effet au survol de la souris */
+.btn-download:hover {
+    background-color: #1d4ed8; /* Un bleu légèrement plus foncé */
+    border-color: #1d4ed8;
+    color: #ffffff;
+    box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3); /* Ombre plus marquée */
+    transform: translateY(-2px); /* Léger effet de soulèvement dynamique */
+}
+
+/* Ajustement de l'icône FontAwesome à l'intérieur du bouton */
+.btn-download i {
+    font-size: 1.1rem;
+}
