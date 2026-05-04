@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Déploiement Flexisip et pfSense | YANG Liam</title>
+     <link rel="icon" type="image/png" href="../assets/favicon.png">
+    <link rel="stylesheet" href="../css/mini-projet1.css">
+</head>
+<body>
+    <nav class="top-nav">
+        <div class="container">
+            <a href="../index.html" class="btn-back">← Retour</a>
+        </div>
+    </nav>
+    <header class="hero">
+        <div class="container">
+            <h1>Mini-Projet Réseau & VoIP</h1>
+            <h2 class="subtitle">Déploiement de Flexisip sur Debian 12 et Configuration pfSense</h2>
+            <p class="author">Par : YANG Liam - SIO</p>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <section class="intro-box">
+            <h3>Qu'est-ce que Flexisip (Linphone) ?</h3>
+            <p><strong>Flexisip</strong> est une suite logicielle de serveur SIP développée par 
+                <em>Belledonne Communications</em>, l'entreprise derrière la célèbre application de softphone 
+                <strong>Linphone</strong>. Conçu pour être hautement évolutif et modulaire, 
+                Flexisip gère le routage des appels SIP, l'enregistrement des utilisateurs (Registrar) et 
+                l'envoi de notifications push pour les applications mobiles. Il est idéal pour déployer une infrastructure 
+                de Voix sur IP (VoIP) sécurisée et performante.</p>
+        </section>
+
+        <section class="section">
+            <h3 class="section-title"><span>I</span> Résumé de la documentation</h3>
+            <p>Ce projet détaille la mise en place d'une infrastructure réseau de base avec pfSense et 
+                le déploiement d'un serveur SIP Flexisip sur un environnement Linux.</p>
+            
+            <div class="grid">
+                <div class="card card-danger">
+                    <h4>1. Configuration pfSense</h4>
+                    <p>La première étape consiste à configurer le routeur pfSense. Cela inclut le paramétrage de l'interface WAN 
+                        avec une adresse IP statique, suivi de la configuration de l'interface LAN pour attribuer 
+                        l'adresse IP du routeur côté réseau local.</p>
+                </div>
+                
+                <div class="card card-success">
+                    <h4>2. Préparation Debian 12</h4>
+                    <p>Avant d'installer le serveur SIP, le système Debian 12 "Bookworm" doit être préparé. 
+                        Cela nécessite l'ajout du dépôt officiel <em>Belledonne</em> et de sa clé de sécurité GPG
+                        . Les dépendances de base de données, comme <code>libmariadb-dev</code>, sont également installées.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h3 class="section-title"><span>II</span> Installation et Paramétrage de Flexisip</h3>
+            <div class="card">
+                <h4>Installation des paquets</h4>
+                <ul>
+                    <li>Installation du paquet principal <code>bc-flexisip</code> via le gestionnaire APT.</li>
+                    <li>Démarrage des services <code>flexisip-proxy</code> et <code>flexisip-presence</code> via <em>systemctl</em>.</li>
+                    <li>Vérification de la version installée (2.4.3-1) à l'aide de la commande <code>dpkg -s flexisip</code>.</li>
+                </ul>
+                
+                <h4 style="margin-top: 20px;">Configuration du fichier flexisip.conf</h4>
+                <p>Le fichier de configuration principal est par défaut pas configuré, il faut donc le configurer à la main:</p>
+                <ul>
+                    <li><strong>Transports :</strong> Écoute sur tous les protocoles SIP standards (<code>transports=sip*</code>).</li>
+                    <li><strong>Sécurité :</strong> Activation du module <em>DosProtection</em> pour contrer les attaques par déni de service.</li>
+                    <li><strong>Authentification :</strong> Désactivée pour permettre les requêtes sans mot de passe lors de cette phase.</li>
+                    <li><strong>Registrar :</strong> Activé pour tous les domaines avec une expiration fixée à 7 jours (604800 secondes).</li>
+                    <li><strong>Routeur :</strong> Activation du <em>late forking</em> pour conserver et délivrer les messages aux 
+                        utilisateurs hors-ligne à leur reconnexion.</li>
+                </ul>
+            </div>
+        </section>
+    
+        <div class="button-group">
+            <a href="../assets/doc-flexisip.odt" class="btn-download">
+                <i class="fas fa-file-download"></i> Télécharger ma documentation
+            </a>
+            
+        </div>
+
+        <footer class="footer">
+            <p>Ressources consultées :</p>
+            <div class="links">
+                <a href="https://wiki.linphone.org/xwiki/wiki/public/view/Flexisip/1.%20Installation/" target="_blank">Documentation Linphone / Flexisip</a>
+            </div>
+        </footer>
+
+    </main>
+</body>
+</html>

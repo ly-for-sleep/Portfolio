@@ -43,7 +43,11 @@
     box-sizing: border-box;
 }
 
-html { scroll-behavior: smooth; }
+html { 
+    scroll-behavior: smooth;
+    /* Ajustez les 80px selon la vraie hauteur de votre <header> */
+    scroll-padding-top: 80px;
+}
 
 body {
     font-family: var(--font-body);
@@ -161,27 +165,11 @@ h1::after, h2::after { content: none; }
     align-items: center;
     text-align: center;
     padding: 120px 5% 100px;
-    overflow: hidden;
-    background:
-        linear-gradient(160deg, rgba(13,17,23,0.96) 40%, rgba(25,40,70,0.7) 100%),
-        url('https://informatique-ou-libertes.fr/wp-content/uploads/2025/07/informatique-ou-libertes.fr-quelle-est-la-definition-simple-dun-reseau-informatique-quelle-est-la-definition-simple-dun-reseau-informatique-1024x683.jpg') center/cover no-repeat;
+    /* Couleur de fond de secours si le JS met du temps à charger */
+    background-color: #0d1117; 
+    /* Important : garde le contenu de la section au-dessus */
+    z-index: 1; 
 }
-
-/* Halo ambient */
-.hero-section::before {
-    content: '';
-    position: absolute;
-    width: 700px;
-    height: 700px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(79,142,247,0.12) 0%, transparent 70%);
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    pointer-events: none;
-}
-.hero-section::after { content: none; }
-
 .hero-content {
     position: relative;
     z-index: 2;
@@ -313,11 +301,50 @@ h1::after, h2::after { content: none; }
 
 /* --- 10. TIMELINE --- */
 .timeline-section {
+    position: relative;
     padding: 90px 5%;
-    background:
-        linear-gradient(rgba(13,17,23,0.94), rgba(13,17,23,0.94)),
-        url('https://imgs.search.brave.com/wxgHWSOHjVUZCXAjlXMjsRkOMhMiRPGsdriKby5Kiyo/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJjYXZlLmNv/bS93cC93cDExMjgw/MTk0LmpwZw') center/cover no-repeat fixed;
+    /* Un fond sombre profond et uniforme */
+    background-color: #0d1117; 
     text-align: center;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* 1. La grille de points "Matrice/Data" */
+.timeline-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    /* On crée une grille de petits points au lieu de lignes pour changer de la Hero */
+    background-image: radial-gradient(rgba(255, 255, 255, 0.05) 2px, transparent 1px);
+    background-size: 30px 30px;
+    z-index: -2;
+}
+
+/* 2. L'effet de "Scanner" ou "Flux de données" qui descend */
+.timeline-section::after {
+    content: "";
+    position: absolute;
+    top: -30%;
+    left: 0;
+    width: 100%;
+    height: 60%;
+    /* Un halo de lumière horizontal très fin qui simule un scan système */
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(57, 114, 237, 0.08) 50%,
+        transparent
+    );
+    animation: scanLine 10s ease-in-out infinite;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* 3. Animation du balayage vertical */
+@keyframes scanLine {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(200%); }
 }
 .timeline-section h2 { margin-bottom: 56px; }
 
@@ -327,16 +354,7 @@ h1::after, h2::after { content: none; }
     margin: 0 auto;
     padding-left: 40px;
 }
-.timeline::before {
-    content: '';
-    position: absolute;
-    left: 10px;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background: linear-gradient(to bottom, transparent, var(--accent) 8%, var(--accent) 92%, transparent);
-    opacity: 0.4;
-}
+
 
 .timeline-item {
     position: relative;

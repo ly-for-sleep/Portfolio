@@ -15,8 +15,8 @@ body {
 
 /* Header */
 .hero {
-    /*background-color: #0f172a;*/
-    background-image: url('https://www.centreon.com/wp-content/uploads/2024/10/Centreon_24_10_Resource_Status_UI_Enhancement-1.gif');
+    /* J'ai conservé l'image de fond du modèle, vous pourrez la changer par une image liée au réseau si besoin */
+    background-image: url("../assets/linphone_img.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-blend-mode: overlay;
@@ -95,6 +95,7 @@ body {
 
 .links a { color: #2563eb; text-decoration: none; margin: 0 10px; }
 .placeholder { font-style: italic; color: #94a3b8; }
+
 /* Style du bouton retour */
 .top-nav {
     padding: 1px 0;
@@ -120,6 +121,7 @@ body {
     color: #ffffff;
     box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
 }
+
 /* Style du bouton de téléchargement */
 .btn-download {
     display: flex;
@@ -154,6 +156,7 @@ body {
 .btn-download i {
     font-size: 1.1rem;
 }
+
 /* Conteneur pour aligner les boutons côte à côte */
 .button-group {
     display: flex;

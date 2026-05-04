@@ -40,7 +40,7 @@ window.addEventListener("load", function() {
             // Affichage du message combiné avec le pourcentage dynamique
             loaderText.textContent = `${currentMessage} [${width}%]`;
         }
-    }, 30);
+    }, 20);
 
     function finishLoading() {
         const loader = document.getElementById("loader");
