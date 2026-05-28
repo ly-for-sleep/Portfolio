@@ -1,0 +1,267 @@
+/* ==========================================================================
+   DOCUMENTS STYLES — Basé sur la charte graphique de Liam YANG
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --bg-deep:        #0d1117;
+    --bg-base:        #13181f;
+    --bg-card:        #1a2030;
+    --bg-card-hover:  #1f2840;
+
+    --accent:         #4f8ef7;
+    --accent-light:   #7aaeff;
+    --accent-dim:     rgba(79, 142, 247, 0.1);
+    --accent-glow:    rgba(79, 142, 247, 0.2);
+
+    --border:         rgba(255, 255, 255, 0.07);
+    --border-hover:   rgba(79, 142, 247, 0.35);
+
+    --text-primary:   #f0f4ff;
+    --text-secondary: #8b95a9;
+    --text-muted:     #4a5568;
+    --white:          #ffffff;
+
+    --font-heading: 'Manrope', sans-serif;
+    --font-body:    'Inter', sans-serif;
+
+    --radius:    10px;
+    --radius-sm: 6px;
+    --shadow:    0 4px 24px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 12px 48px rgba(0, 0, 0, 0.5);
+    --ease:      cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --duration:  0.3s;
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-deep);
+    color: var(--text-primary);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* --- HEADER / NAVBAR (SIMPLIFIÉ) --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background-color: rgba(13, 17, 23, 0.9);
+    border-bottom: 1px solid var(--border);
+}
+.logo {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--white);
+}
+.navbar ul {
+    list-style: none;
+    display: flex;
+}
+.navbar a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color var(--duration) var(--ease);
+}
+.navbar a:hover {
+    color: var(--white);
+}
+
+/* --- SECTION PRINCIPALE --- */
+.docs-section {
+    padding: 80px 5% 100px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.docs-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.docs-header h1 {
+    font-size: 2.5rem;
+    font-family: var(--font-heading);
+    color: var(--white);
+}
+
+/* Boutons Toggle (Mosaïque / Liste) */
+.view-toggle {
+    display: flex;
+    gap: 10px;
+    background-color: var(--bg-base);
+    padding: 5px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+}
+
+.view-toggle button {
+    background: transparent;
+    border: none;
+    padding: 8px 16px;
+    color: var(--text-secondary);
+    font-family: var(--font-body);
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: var(--radius-sm);
+    transition: all var(--duration) var(--ease);
+}
+
+.view-toggle button:hover {
+    color: var(--white);
+}
+
+.view-toggle button.active {
+    background-color: var(--bg-card);
+    color: var(--accent-light);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+/* --- STRUCTURE DES CARTES --- */
+.doc-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: transform var(--duration) var(--ease), border-color var(--duration) var(--ease), box-shadow var(--duration) var(--ease);
+    display: flex;
+}
+
+.doc-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--border-hover);
+    box-shadow: var(--shadow-lg);
+    background-color: var(--bg-card-hover);
+}
+
+.doc-image {
+    background-color: var(--bg-base);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-muted);
+    font-weight: 500;
+    /* Propriétés pour insérer tes images de fond facilement : */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.doc-content {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+}
+
+.doc-title {
+    font-size: 1.25rem;
+    color: var(--white);
+    margin-bottom: 10px;
+    font-family: var(--font-heading);
+}
+
+.doc-desc {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.btn-download {
+    align-self: flex-start;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--accent-dim);
+    color: var(--accent-light);
+    border: 1px solid var(--accent);
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all var(--duration) var(--ease);
+    text-align: center;
+    text-decoration: none;
+}
+
+.btn-download:hover {
+    background-color: var(--accent);
+    color: var(--white);
+    box-shadow: 0 0 15px var(--accent-glow);
+}
+
+/* --- MODE MOSAÏQUE (GRID VIEW) --- */
+.grid-view {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.grid-view .doc-card {
+    flex-direction: column;
+}
+
+.grid-view .doc-image {
+    width: 100%;
+    height: 180px;
+    border-bottom: 1px solid var(--border);
+}
+
+/* --- MODE LISTE (LIST VIEW) CORRIGÉ --- */
+.list-view {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.list-view .doc-card {
+    flex-direction: row;          /* Image à gauche, contenu à droite */
+    align-items: stretch;         /* Étire l'image et le texte à la même hauteur */
+    height: auto;                 /* Laisse le contenu dicter la hauteur... */
+    min-height: 200px;            /* ...mais garde un minimum pour l'esthétique */
+}
+
+.list-view .doc-image {
+    flex: 0 0 280px;              /* Règle magique : Ne grandit pas, ne rétrécit pas, fait exactement 280px */
+    width: 280px;
+    border-right: 1px solid var(--border);
+    border-bottom: none;
+}
+
+.list-view .doc-content {
+    flex: 1;                      /* Le texte prend tout le reste de l'espace */
+    min-width: 0;                 /* Empêche un texte trop long de casser la carte (très important) */
+    padding: 30px;
+    justify-content: center;      /* Centre le texte verticalement si l'image est haute */
+}
+
+
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    /* Sur mobile, on repasse la liste en colonne pour ne pas écraser l'affichage */
+    .list-view .doc-card {
+        flex-direction: column;
+        height: auto;
+    }
+    .list-view .doc-image {
+        width: 100%;
+        height: 180px;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+    }
+}

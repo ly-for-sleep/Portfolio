@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mes Documents | Liam YANG</title>
+    <link rel="stylesheet" href="../css/mes-doc.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">Liam YANG</div>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Retour à l'accueil</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="docs-section">
+        <div class="docs-header">
+            <h1>Ressources & Documents</h1>
+            <div class="view-toggle">
+                <button id="btn-grid" class="active">Mosaïque</button>
+                <button id="btn-list">Liste</button>
+            </div>
+        </div>
+
+       
+        <div id="docs-container" class="docs-container grid-view">
+            
+            
+            <article class="doc-card">
+                <div class="doc-image" style="background-image: url('URL_DE_TON_IMAGE_1.jpg');">
+                    
+                    <span>Image 1</span>
+                </div>
+                <div class="doc-content">
+                    <h3 class="doc-title">Document Projet 1</h3>
+                    <p class="doc-desc">Courte description du document expliquant l'architecture réseau et la configuration associée.</p>
+                    <a href="#" class="btn-download" download>Télécharger</a>
+                </div>
+            </article>
+
+            
+            <article class="doc-card">
+                <div class="doc-image" style="background-image: url('URL_DE_TON_IMAGE_2.jpg');">
+                    <span>Image 2</span>
+                </div>
+                <div class="doc-content">
+                    <h3 class="doc-title">Guide d'Installation Linux</h3>
+                    <p class="doc-desc">Procédure détaillée sur le déploiement d'un environnement de travail optimisé sous Debian.</p>
+                    <a href="#" class="btn-download" download>Télécharger</a>
+                </div>
+            </article>
+
+            
+            <article class="doc-card">
+                <div class="doc-image" style="background-image: url('../assets/pfsense-logo.jpg');">
+                    <span></span>
+                </div>
+                <div class="doc-content">
+                    <h3 class="doc-title">Guide installation pfSense</h3>
+                    <p class="doc-desc">Petit pour vous aider à installer Pfsense.</p>
+                    <a href="#" class="btn-download" download>Télécharger</a>
+                </div>
+            </article>
+
+            <article class="doc-card">
+                <div class="doc-image" style="background-image: url('');">
+                    <span></span>
+                </div>
+                <div class="doc-content">
+                    <h3 class="doc-title">carte de test</h3>
+                    <p class="doc-desc">Petit pour vous aider à installer Pfsense.</p>
+                    <a href="#" class="btn-download" download>Télécharger</a>
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+    <script src="../script/mes-doc.js"></script>
+        
+    
+</body>
+</html>
