@@ -1,0 +1,181 @@
+/* Configuration Générale */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8fafc;
+    color: #334155;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+.hero {
+    /*background-color: #0f172a;*/
+    background-image: url('https://www.trustedtechteam.com/cdn/shop/articles/Microsoft_Windows_Server_2022_Features_00dc7009-d0b7-4f24-853f-d707089e0ca1-1137881.png?v=1756999727');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-blend-mode: overlay;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: rgb(255, 255, 255);
+    background-position: center;
+    padding: 60px 20px;
+    text-align: center;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+}
+
+.hero h1 { font-size: 2.5rem; margin-bottom: 10px; }
+.subtitle { color: #acd1ff; font-weight: 300; font-size: 1.5rem; }
+.author { color: #dadada; text-transform: uppercase; letter-spacing: 2px; margin-top: 20px; }
+
+/* Sections & Titres */
+.section { margin-bottom: 40px; }
+.section-title {
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.section-title span {
+    background-color: #2563eb;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    margin-right: 12px;
+}
+
+/* Boites et Cartes */
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.intro-box {
+    background-color: white;
+    border-left: 5px solid #2563eb;
+    padding: 20px;
+    margin-top: -40px; /* Effet de chevauchement */
+    border-radius: 8px;
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.card-danger { background-color: #fef2f2; border-color: #fee2e2; }
+.card-danger h4 { color: #b91c1c; }
+
+.card-success { background-color: #f0fdf4; border-color: #dcfce7; }
+.card-success h4 { color: #15803d; }
+
+/* Liens et Footer */
+.source-link { font-size: 0.8rem; color: #475569; text-decoration: underline; }
+.footer {
+    text-align: center;
+    padding: 40px 0;
+    border-top: 1px solid #e2e8f0;
+    color: #94a3b8;
+}
+
+.links a { color: #2563eb; text-decoration: none; margin: 0 10px; }
+.placeholder { font-style: italic; color: #94a3b8; }
+/* Style du bouton retour */
+.top-nav {
+    padding: 1px 0;
+    background-color: #f8fafc; /* Couleur de fond de la barre de navigation */
+}
+
+.btn-back {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #ffffff;
+    color: #2563eb; /* Couleur du texte (bleu) */
+    text-decoration: none;
+    border: 1px solid #2563eb;
+    border-radius: 6px; /* Arrondi des coins */
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.3s ease; /* Animation fluide lors du survol */
+}
+
+/* Ce qui se passe quand on passe la souris dessus */
+.btn-back:hover {
+    background-color: #2563eb;
+    color: #ffffff;
+    box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
+}
+/* Style du bouton de téléchargement */
+.btn-download {
+    display: flex;
+    margin : 20px auto;
+    width: fit-content;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Espace propre entre l'icône et le texte */
+    padding: 12px 24px;
+    background-color: #2563eb; /* Bleu principal de ton thème */
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 6px; /* Arrondi cohérent avec le btn-back */
+    font-size: 1rem;
+    font-weight: 600;
+    border: 2px solid #2563eb;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2); /* Ombre bleutée subtile */
+    margin-top: 20px; /* Espace au dessus si intégré dans une carte */
+}
+
+/* Effet au survol de la souris */
+.btn-download:hover {
+    background-color: #1d4ed8; /* Un bleu légèrement plus foncé */
+    border-color: #1d4ed8;
+    color: #ffffff;
+    box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3); /* Ombre plus marquée */
+    transform: translateY(-2px); /* Léger effet de soulèvement dynamique */
+}
+
+/* Ajustement de l'icône FontAwesome à l'intérieur du bouton */
+.btn-download i {
+    font-size: 1.1rem;
+}
+/* Conteneur pour aligner les boutons côte à côte */
+.button-group {
+    display: flex;
+    justify-content: center; /* Centre les boutons au milieu de la page */
+    align-items: center;     /* Aligne les boutons sur le même axe vertical */
+    gap: 20px;               /* Crée un espace de 20px entre les deux boutons */
+    margin-top: 30px;        /* Ajoute un peu d'espace au-dessus du groupe */
+    width: 100%;
+    flex-wrap: wrap;         /* Permet aux boutons de passer à la ligne s'il n'y a pas assez de place */
+}
+
+/* --- OPTIONNEL MAIS RECOMMANDÉ : Responsivité pour les mobiles --- */
+/* Si l'écran est plus petit que 600px (smartphones) */
+@media (max-width: 600px) {
+    .button-group {
+        flex-direction: column; /* Empile les boutons verticalement */
+        gap: 15px;              /* Réduit légèrement l'espace entre eux */
+    }
+    
+    /* On force les boutons à prendre toute la largeur sur mobile pour être plus cliquables */
+    .button-group .btn-download {
+        width: 100%;
+        margin-top: 0;          /* Annule le margin-top individuel s'il y en avait un */
+    }
+}

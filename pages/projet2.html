@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation Infrastructures | YANG Liam</title>
+    <link rel="stylesheet" href="../css/projet2.css">
+</head>
+<body>
+    <nav class="top-nav">
+        <div class="container">
+            <a href="../index.html" class="btn-back">← Retour à l'accueil</a>
+        </div>
+    </nav>
+    
+    <header class="hero">
+        <div class="container">
+            <h1>Déploiement d'Infrastructures</h1>
+            <h2 class="subtitle">Windows Server, pfSense en redondance et NAS TrueNAS</h2>
+            <p class="author">Par : YANG Liam</p>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <section class="intro-box">
+            <h3>Présentation de la documentation</h3>
+            <p><strong>Objectif :</strong> Ce guide rassemble les procédures étape par étape pour déployer trois services essentiels au sein d'une infrastructure réseau virtualisée sous VMware : un contrôleur de domaine Windows Server, un pare-feu pfSense en haute disponibilité et un serveur de stockage NAS.</p>
+        </section>
+
+        <section class="section">
+            <h3 class="section-title"><span>1</span> Déploiement Windows Server 2022</h3>
+            <p>Création d'un serveur Windows 2022 avec AD DS, DHCP et DNS depuis une machine virtuelle avec VMWare.</p>
+            
+            <div class="card">
+                <h4>Étape 1 : Préparation de l'environnement</h4>
+                <ul>
+                    <li>Téléchargement de l'hyperviseur VMWare Workstation 17 et de l'ISO officiel de Windows Server 2022.</li>
+                </ul>
+
+                <h4 style="margin-top: 20px;">Étape 2 : Création de la Machine Virtuelle</h4>
+                <ul>
+                    <li>Dans VMWare, cliquer sur « File » puis « New Virtual Machine… » et choisir la configuration « Typical » pour créer la VM facilement.</li>
+                </ul>
+
+                <h4 style="margin-top: 20px;">Étape 3 : Assignation de l'ISO</h4>
+                <ul>
+                    <li>Lors du choix de l'installation de l'ISO, sélectionner l'option « I will install the operating system later » (Choisir l'iso plus tard).</li>
+                    <li>Cette méthode est recommandée pour éviter que VMWare ne détecte pas correctement la bonne version de l'ISO.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h3 class="section-title"><span>2</span> Configuration pfSense en redondance</h3>
+            <p>Mise en place d'un Pfsense-main et d'un Pfsense-secondary.</p>
+            
+            <div class="card card-success">
+                <h4>Étape 1 : Configuration des cartes réseaux</h4>
+                <ul>
+                    <li>La machine doit être configurée avec 3 cartes réseaux : WAN, LAN et pfsync.</li>
+                </ul>
+
+                <h4 style="margin-top: 20px;">Étape 2 : Lancement et Installation</h4>
+                <ul>
+                    <li>Démarrer la machine et faire « Accept » puis choisir « Install pfSense ».</li>
+                    <li>Pour le partitionnement, sélectionner « Auto UFS » en utilisant le disque entier.</li>
+                    <li>Dans « Partition Scheme », opter pour « MBR DOS ».</li>
+                    <li>Valider avec « Commit » puis redémarrer (Reboot) la machine à la fin du chargement.</li>
+                </ul>
+
+                <h4 style="margin-top: 20px;">Étape 3 : Adressage IP</h4>
+                <ul>
+                    <li>Sur le menu principal de pfSense, utiliser l'option 1 pour assigner les cartes réseaux.</li>
+                    <li>Utiliser l'option 2 pour appliquer une adresse IP sur chaque interface.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h3 class="section-title"><span>3</span> Configuration Serveur NAS</h3>
+            <p>Création et configuration d'un serveur NAS sous Debian 12 en utilisant TrueNAS.</p>
+            
+            <div class="card">
+                <h4>Étape 1 : Préparation des disques</h4>
+                <ul>
+                    <li>Récupération de l'ISO TrueNAS depuis le site officiel.</li>
+                    <li>Allocation de 3 disques à la machine virtuelle : le premier pour le système d'exploitation, le deuxième pour le stockage, et le troisième en redondance (copie du 2e en cas de panne).</li>
+                </ul>
+
+                <h4 style="margin-top: 20px;">Étape 2 : Installation de l'OS</h4>
+                <ul>
+                    <li>Choisir l'option 1 « Install/Upgrade » et sélectionner le premier disque pour installer le système d'exploitation.</li>
+                </ul>
+
+                <h4 style="margin-top: 20px;">Étape 3 : Sécurisation et Redémarrage</h4>
+                <ul>
+                    <li>Définir un mot de passe fort pour le compte administrateur (Attention : l'interface d'installation utilise un clavier QWERTY).</li>
+                    <li>Une fois l'installation terminée, redémarrer la machine.</li>
+                </ul>
+
+                <h4 style="margin-top: 20px;">Étape 4 : Interface Web</h4>
+                <ul>
+                    <li>Après le redémarrage, se connecter à l'interface web via l'identifiant <code>truenas_admin</code> et le mot de passe renseigné lors de l'installation.</li>
+                </ul>
+            </div>
+        </section>
+    
+    <div class="button-group">
+        <a href="../assets/doc-win-server-2022.docx" download="doc-centreon.odt" class="btn-download">
+            <i class="fas fa-file-download"></i> Télécharger ma documentation Windows Server
+        </a>
+        <a href="../assets/doc-pfsense.docx" download="guide-install-centreon.odt" class="btn-download">
+            <i class="fas fa-file-download"></i> Télécharger ma documentation Pfsense
+        </a>
+        <a href="../assets/doc-nas.docx" download="guide-install-centreon.odt" class="btn-download">
+            <i class="fas fa-file-download"></i> Télécharger ma documentation TrueNAS
+        </a>
+    </div>    
+
+    </main>
+</body>
+</html>
